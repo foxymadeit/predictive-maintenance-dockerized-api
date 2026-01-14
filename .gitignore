@@ -7,7 +7,6 @@ __pycache__/
 
 # Jupyter / notebooks
 .ipynb_checkpoints/
-*.ipynb
 
 # Pytest / coverage
 .pytest_cache/
