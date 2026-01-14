@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Predictive Maintenance</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 24px; }
+    label { font-size: 14px; color: #222; display: block; margin-bottom: 6px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 24px;
+      max-width: 900px;
+      margin-bottom: 20px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      height: 40px;
+      box-sizing: border-box;
+    }
+
+    button { padding: 10px 14px; font-size: 14px; cursor: pointer; }
+    .row { display:flex; gap: 10px; margin-top: 16px; align-items:center; flex-wrap: wrap; }
+    pre { background: #f5f5f5; padding: 12px; overflow:auto; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; max-width: 900px; margin-top: 18px; }
+    .muted { color:#666; font-size: 13px; }
+    img { max-width: 100%; border: 1px solid #eee; border-radius: 10px; }
+  </style>
+</head>
+<body>
+
+<h1>Predictive Maintenance</h1>
+<p class="muted">Sends requests to <code>/predict</code>, <code>/explain</code> and (optional) <code>/explain/plot</code>.</p>
+
+<div class="card">
+  <h3>Input parameters</h3>
+
+  <div class="grid">
+    <div>
+      <label>Air temperature [K]</label>
+      <input id="air" type="number" placeholder="e.g. 300.5", step="0.1" />
+    </div>
+    <div>
+      <label>Process temperature [K]</label>
+      <input id="proc" type="number" placeholder="e.g. 310.0", step="0.1" />
+    </div>
+    <div>
+      <label>Rotational speed [rpm]</label>
+      <input id="rpm" type="number" placeholder="e.g. 1500", step='1' />
+    </div>
+    <div>
+      <label>Torque [Nm]</label>
+      <input id="torque" type="number" placeholder="e.g. 40.2", step="0.1" />
+    </div>
+    <div>
+      <label>Tool wear [min]</label>
+      <input id="wear" type="number" placeholder="e.g. 120", step="1" />
+    </div>
+    <div>
+      <label>Type</label>
+      <select id="type">
+        <option value="" disabled selected>Select machine type...</option>
+        <option value="L">L (Low quality)</option>
+        <option value="M">M (Medium quality)</option>
+        <option value="H">H (High quality)</option>
+      </select>
+    </div>
+</div>
+
+  <div class="row">
+    <button id="btnPredict">Predict</button>
+    <button id="btnExplain">Explain (top features)</button>
+    <button id="btnPlot">Explain Plot (PNG)</button>
+    <span id="status" class="muted"></span>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Result</h3>
+  <pre id="out">—</pre>
+</div>
+
+<div class="card">
+  <h3>Explain Plot</h3>
+  <div class="muted">Rendered from <code>/explain/plot</code></div>
+  <div style="margin-top:10px;">
+    <img id="plot" alt="SHAP plot will appear here" />
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

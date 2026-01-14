@@ -1,0 +1,25 @@
+# --- API ---
+fastapi==0.128.0
+uvicorn[standard]==0.39.0
+pydantic==2.12.5
+PyYAML==6.0.2
+
+# --- ML / Data ---
+numpy==2.0.2
+pandas==2.2.3
+scikit-learn==1.6.1
+scipy==1.13.1
+joblib==1.5.2
+
+# --- Data format ---
+pyarrow==21.0.0
+
+# --- Explainability / plots (for /explain/plot) ---
+shap==0.49.1
+matplotlib==3.9.4
+
+# ---Test---
+pytest==8.4.2
+pytest-asyncio==1.2.0
+pytest-cov==7.0.0
+httpx==0.28.1

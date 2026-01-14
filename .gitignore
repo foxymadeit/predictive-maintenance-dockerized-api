@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+logs/
+*.log
+
+# Environment / secrets
+.env
+.env.*
+*.env
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Docker
+docker-compose.override.yml
+
+# Temporary files
+tmp/
+.cache/
+
+# IDE
+.vscode/
+.idea/
